@@ -1,9 +1,13 @@
-export default function (produtos) {
-    {
-        produtos.map((produto) => <div key={produto.id}>
-        <h1>{produto.title}</h1>
-        <h1>{produto.description}</h1>
-        <h1>Preco: R${produto.price}</h1>
-        </div>)
-    }
+
+
+export default function ListaProduto({produtos}) {
+    return(
+        <div>
+            {
+                produtos.map((produto1) => <div key={produto1.id}>
+                    <p>{produto1.title}</p>
+                </div>)
+            }
+        </div>
+    )
 }

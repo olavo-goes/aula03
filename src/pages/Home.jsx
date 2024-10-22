@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import listaProduto from "../Components/listaProduto";
+import ListaProduto from "../Components/ListaProduto";
 
 export default function Home(){
 
-const [dado, setDados] = useState([])
+const [dados, setDados] = useState([])
 
 
 
@@ -11,20 +11,18 @@ const [dado, setDados] = useState([])
 
         const receberDados = async () => {
             try{
-            const dados = await fetch ('https://fakestoreapi.com/products');
-            const resp = await dados.json();
+            const resp = await fetch ('https://fakestoreapi.com/products');
+            const dados = await resp.json();
             setDados(dados)}
-            catch{
+            catch(erro){
                 alert("erro")
             }
         }
         receberDados();
-    }, [])}
-
+    }, [])
 
 
     return(
-    <>
-    
-    </>
+        <ListaProduto produto1={dados}/>
     )
+}
