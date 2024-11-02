@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ListaProduto from "../Components/listaProduto";
+import style from '../style/listaProduto.module.css';
+
 
 export default function Home(){
 
@@ -22,8 +24,14 @@ const [dados, setDados] = useState([])
     }, [])
 
 
-    return (
+    return (<>
+        <div className={style.Header}>
+            <h1>Lista de Produros</h1>
+        </div>
         <ListaProduto produtos={dados} />
-    );
+        <div className={style.Footer}>
+            <p>Trabalho Olavo Cesar Oliveira Maciel Goes, Todos os direitos reservados</p>
+        </div>
+    </>);
     
 }
