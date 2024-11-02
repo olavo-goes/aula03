@@ -36,11 +36,11 @@
     text-align: center;
     font-style: italic;
     color: white;
-   background-color: #020d3f;
-   position: relative;
-   width: 100%;
-   display: flex;
-   justify-content: center;
+    background-color: #020d3f;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .produtos{
