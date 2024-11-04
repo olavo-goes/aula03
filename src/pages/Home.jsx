@@ -33,5 +33,4 @@ const [dados, setDados] = useState([])
             <p>Trabalho Olavo Cesar Oliveira Maciel Goes, Todos os direitos reservados</p>
         </div>
     </>);
-    
 }
