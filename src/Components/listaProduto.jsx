@@ -1,6 +1,10 @@
 import style from '../style/listaProduto.module.css';
+import Loading from '../Components/Loading';
 
 export default function ListaProduto({produtos}) {
+    if(produtos.length == 0){
+        return <Loading/>
+    }
     return(
         <ul className={style.blocoprodutos}>
             {
@@ -14,6 +18,3 @@ export default function ListaProduto({produtos}) {
         </ul>
     )
 }
-
-
-// Correto
