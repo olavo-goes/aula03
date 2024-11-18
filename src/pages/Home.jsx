@@ -27,7 +27,7 @@ const [dados, setDados] = useState([])
 
     return (<>
         <div className={style.Header}>
-            <h1>Lista de Produros</h1>
+            <h1>Lista de Produtos</h1>
         </div>
 
 
