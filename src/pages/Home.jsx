@@ -25,12 +25,52 @@ const [dados, setDados] = useState([])
     }, [])
 
 
+
+    if(dados.length == 0){
+        return(<h1>Carregando...</h1>)
+    }
+
+
+    const orderAZ = () => {
+        const listaOrdenada = [...dados].sort((a, b) => a.title.localeCompare(b.title))
+        setDados(listaOrdenada)
+    }
+
+
+
+    const reverseOrder = () => {
+        const listaReversa = [...dados].reverse((a, b) => a.title.localeCompare(b.title))
+        setDados(listaReversa)
+    }
+
+
+    const orderPrice = () => {
+        const ListaPreco = [...dados].sort((a, b) => a.price.orderPrice(b.price))
+        setDados(ListaPreco)
+    }
+
+
+
+
     return (<>
         <div className={style.Header}>
             <h1>Lista de Produtos</h1>
         </div>
 
+        <button onClick={() => orderAZ()}>
+        AZ
+        </button>
 
+
+        <button onClick={() => reverseOrder()}>
+        reverse
+        </button>
+
+        <button onClick={() => orderPrice()}>
+        Price
+        </button>
+
+        <input></input>
         <ListaProduto produtos={dados} />
 
 
