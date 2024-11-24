@@ -44,12 +44,23 @@ const [dados, setDados] = useState([])
     }
 
 
-    const orderPrice = () => {
-        const ListaPreco = [...dados].sort((a, b) => a.price.orderPrice(b.price))
-        setDados(ListaPreco)
+    const Decrescente = () => {
+        const MaiorMenor = [...dados].sort((a, b) => b.price - a.price)
+        setDados(MaiorMenor)
     }
 
+    const Crescente = () => {
+        const MenorMaior = [...dados].sort((a, b) => a.price - b.price)
+        setDados(MenorMaior)
+    }
 
+    const Consultar = () => {
+       const pesquisa = [...dados].filter(product => 
+        product.name.ToLowerCase().includes(dados.ToLowerCase()),
+        product.description.ToLowerCase().includes(dados.ToLowerCase())
+       )
+       setDados(pesquisa)
+    }
 
 
     return (<>
@@ -66,11 +77,19 @@ const [dados, setDados] = useState([])
         reverse
         </button>
 
-        <button onClick={() => orderPrice()}>
-        Price
+        <button onClick={() => Decrescente()}>
+        Maior para Menor
         </button>
 
-        <input></input>
+        <button onClick={() => Crescente()}>
+        Menor para maior
+        </button>
+
+        <input>
+        <button onClick={() => Consultar()}>
+        Search
+        </button>
+        </input>
         <ListaProduto produtos={dados} />
 
 
