@@ -26,11 +26,6 @@ const [dados, setDados] = useState([])
 
 
 
-    if(dados.length == 0){
-        return(<h1>Carregando...</h1>)
-    }
-
-
     const orderAZ = () => {
         const listaOrdenada = [...dados].sort((a, b) => a.title.localeCompare(b.title))
         setDados(listaOrdenada)
@@ -54,12 +49,12 @@ const [dados, setDados] = useState([])
         setDados(MenorMaior)
     }
 
-    const Consultar = () => {
-       const pesquisa = [...dados].filter(product => 
-        product.name.ToLowerCase().includes(dados.ToLowerCase()),
-        product.description.ToLowerCase().includes(dados.ToLowerCase())
-       )
-       setDados(pesquisa)
+
+    const Consultar = (valorPesquisar) => {
+        const pesquisa = [...dados].filter(product => 
+            product.title.toLowerCase().includes(valorPesquisar.toLowerCase())
+        );
+        setDados(pesquisa)
     }
 
 
@@ -68,10 +63,10 @@ const [dados, setDados] = useState([])
             <h1>Lista de Produtos</h1>
         </div>
 
+
         <button onClick={() => orderAZ()}>
         AZ
         </button>
-
 
         <button onClick={() => reverseOrder()}>
         reverse
@@ -85,11 +80,14 @@ const [dados, setDados] = useState([])
         Menor para maior
         </button>
 
-        <input>
-        <button onClick={() => Consultar()}>
-        Search
-        </button>
-        </input>
+
+        <input
+            type="text"
+            placeholder="search"
+            onChange={(event) => Consultar(event.target.value)}
+        />
+
+
         <ListaProduto produtos={dados} />
 
 
